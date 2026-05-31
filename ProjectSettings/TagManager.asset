@@ -11,6 +11,9 @@ TagManager:
   - Enemy
   - Shoot
   - AsteroidBig
+  - TxtMsg
+  - TxtPTotal
+  - TxtPMax
   layers:
   - Default
   - TransparentFX

@@ -35,6 +35,9 @@ public class EnemyController : MonoBehaviour
     {
         // Instanciar la animación de la explosión en la posición de la nave enemiga
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+        GameManager.GetInstance().AddScore(100);
+
         // Destruir la nave enemiga
         Destroy(gameObject);
     }

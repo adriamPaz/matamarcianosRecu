@@ -101,13 +101,21 @@ public class ShipController : MonoBehaviour
     }
     void DestroyShip()
     {
-        // Desactivar comportamiento
+        // 1. Desactivar comportamiento para que no pueda moverse ni disparar mientras muere
         active = false;
-        // Instanciar la animación de la explosión
+
+        // 2. Instanciar la explosión
         Instantiate(explosion, transform.position, Quaternion.identity);
-        // Resetear posición de la nave
+
+        // --- 3. AÑADE ESTA LÍNEA AQUÍ ---
+        // Avisamos al GameManager que reste una vida
+        GameManager.GetInstance().LoseLife(); 
+        // -------------------------------
+
+        // 4. Resetear posición de la nave al punto de inicio
         transform.position = initialPosition;
-        // Reiniciar la nave
+
+        // 5. Reiniciar la nave (vuelve a entrar desde fuera y parpadea)
         StartCoroutine("StartPlayer");
     }
 
